@@ -1,3 +1,32 @@
-const set = new Set([2, 1, 3, 4, 4, 6, 5])
+const requestURL = 'https://jsonplaceholder.typicode.com/users'
 
-console.log(set)
+
+
+
+function sendRequest(method, url, body = null) {
+    return new Promise( (resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open(method, url)
+
+        xhr.responseType = 'json'
+
+        xhr.onload = () => {
+            if(xhr.status >= 400) {
+                reject(xhr.response)
+            } else {
+                resolve(xhr.response)
+            }
+        }
+
+        xhr.onerror = () => {
+            reject(xhr.response)
+        }
+
+        xhr.send()
+    })
+}
+
+sendRequest('GET', requestURL)
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
