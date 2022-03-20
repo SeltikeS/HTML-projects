@@ -1,0 +1,81 @@
+:root {
+    --header-height: 5rem;
+    --footer-height: 3rem;
+    --default-offset: 1rem;
+}
+
+html, body {
+    font-size: 50px;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+header {
+    background-color: black;
+    height: var(--header-height);
+    padding: 0 var(--default-offset);
+}
+
+footer {
+    height: var(--footer-height);
+}
+
+main {
+    display: grid;
+    gap: var(--default-offset);
+    grid-template-columns: repeat(1fr, 6);
+    grid-template-rows: repeat(1fr, 5);
+    height: calc(100% - (var(--header-height) + var(--footer-height)));
+    overflow-y: auto;
+    position: relative;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.header-input {
+    flex: 1;
+    margin: var(--default-offset);
+}
+
+.header-button {
+    background-color: black;
+    color: white;
+    font-size: 48px;
+}
+
+.a {
+    background-color: red;
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+}
+
+.b {
+    background-color: blue;
+    grid-column: 3 / 6;
+    grid-row: 1 / 3;
+}
+
+.c {
+    background-color: violet;
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+
+.d {
+    background-color: orange;
+    grid-column: 3 / 5;
+    grid-row: 3 / 6;
+}
+
+.e {
+    background-color: cyan;
+    grid-column: 5 / 6;
+    grid-row: 4 / 5;
+}
+
