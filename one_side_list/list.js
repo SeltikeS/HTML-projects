@@ -1,4 +1,4 @@
-// Clas Node
+// Class Node
 class Node {
 	constructor(node = null, value = 0) {
 		this.next = node;
@@ -15,49 +15,61 @@ class List {
     // Methods
 
     // Add Node to i-position (default = 0) with value
-    addNode(value, i = 0) {
+    addNode(value, i = null) {
+        const toEnd = (i === null);
+        let count = 0;
         let currentNode = this.root;
         let isDone = false;
-        if (value !== undefined) {
-            if (i === 0) {
-                this.root = new Node(currentNode, value);
-                return true;
+
+        while (count <= i || toEnd) {
+            if (currentNode === null) {
+                break;
             }
-            for(let index = i; index >= 0; --index) {
-                if (currentNode === null) {
-                    break;
-                }
-                if (index === 1) {
-                    let nextNode = currentNode.next;
-                    currentNode.next = new Node(nextNode, value);
-                    isDone = true;
-                    break;
-                }
-                currentNode = currentNode.next;
+            if (toEnd && currentNode.next === null) {
+                const newNode = new Node(null, value);
+                currentNode.next = newNode;
+                isDone = true;
+                break;
             }
+            if (count === i) {
+                const newNode = new Node(currentNode.next, value);
+                currentNode.next = newNode;
+                isDone = true;
+                break;
+            }
+            count++;
+            currentNode = currentNode.next;
         }
+
         return isDone;
     }
 
     // Remove Node from i-position (default = 0). When last Node - return false
-    removeNode(i = 0) {
+    removeNode(i = null) {
+        const fromEnd = (i === null);
+        let count = 0;
         let currentNode = this.root;
         let isDone = false;
-        for(let index = i; index >= 0; --index) {
-            if (currentNode === null) {
+
+        while (count <= i || fromEnd) {
+            if (currentNode === null || currentNode.next === null) {
                 break;
             }
-            if (index === 0) {
-                let nextNode = currentNode.next;
-                if (nextNode !== null) {
-                    currentNode.next = nextNode.next;
-                    currentNode.value = nextNode.value;
-                    isDone = true;
-                    break;
-                }
+            if (fromEnd && currentNode.next.next === null) {
+                currentNode.next = null
+                isDone = true;
+                break;
             }
+            if (count === i) {
+                currentNode.value = currentNode.next.value;
+                currentNode.next = currentNode.next.next;
+                isDone = true;
+                break;
+            }
+            count++;
             currentNode = currentNode.next;
         }
+
         return isDone;
     }
 
@@ -90,15 +102,18 @@ list.print();
 console.log('Добавляю 10 на 1ю позицию списка');
 list.addNode(10, 1);
 list.print();
+console.log('Добавляю 100 на 100ю позицию списка');
+console.log(list.addNode(100, 100));
+list.print();
 console.log('Удаляю 2й элемент списка');
 list.removeNode(2);
 list.print();
-console.log('Удаляю последний элемент списка');
-list.removeNode();
+console.log('Удаляю 0 элемент списка');
+list.removeNode(0);
 list.print();
 console.log('Удаляю последний элемент списка');
-list.removeNode();
+console.log(list.removeNode());
 list.print();
 console.log('Удаляю последний элемент списка');
-list.removeNode();
+console.log(list.removeNode());
 list.print();

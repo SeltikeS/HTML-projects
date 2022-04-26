@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.container .ring {
+  position: relative;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  border-top: 4px solid #24ecff;
+  margin: -30px;
+  height: 150px;
+  width: 150px;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container .ring::before {
+  background: #24ecff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #24ecff33, 
+  0 0 0 10px #24ecff22,
+  0 0 0 20px #24ecff11,
+  0 0 20px #24ecff,
+  0 0 50px #24ecff;
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  height: 15px;
+  width: 15px;
+}
+
+.container .ring:nth-child(2) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -1s;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #93ff2d;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.container .ring:nth-child(2)::before {
+  background: #93ff2d;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #93ff2d33, 
+  0 0 0 10px #93ff2d22,
+  0 0 0 20px #93ff2d11,
+  0 0 20px #93ff2d,
+  0 0 50px #93ff2d;
+  content: '';
+  position: absolute;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  height: 15px;
+  width: 15px;
+}
+
+.container .ring:nth-child(3) {
+  animation: animate2 4s linear infinite;
+  animation-delay: -3s;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #e41cf8;
+  position: absolute;
+  top: -66.66px;
+}
+
+.container .ring:nth-child(3)::before {
+  background: #e41cf8;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #e41cf833, 
+  0 0 0 10px #e41cf822,
+  0 0 0 20px #e41cf811,
+  0 0 20px #e41cf8,
+  0 0 50px #e41cf8;
+  content: '';
+  position: absolute;
+  top: initial;
+  bottom: 12px;
+  left: 12px;
+  height: 15px;
+  width: 15px;
+}
+
+.container p {
+  color: #fff;
+  font-size: 1.5em;
+  font-family: consolas;
+  letter-spacing: .15em;
+  position: absolute;
+  bottom: -80px;
+}

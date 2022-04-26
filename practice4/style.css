@@ -1,0 +1,7 @@
+body {
+  display: flex;
+}
+
+.container {
+  margin-right: 3rem;
+}

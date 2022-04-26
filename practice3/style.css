@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container__area {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+
+.joke {
+  background: black;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  color: white;
+  font: inherit;
+  padding: 1rem 3rem;
+}
+
+.joke:hover {
+  background: white;
+  color: black;
+}
