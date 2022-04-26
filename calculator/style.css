@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  font-family: consolas;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body.light {
+  background: #f8f8f8;
+}
+
+.container {
+  background: #333;
+  border-radius: 20px;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, .25),
+  10px 10px 70px rgba(0, 0, 0, .25),
+  inset -5px -5px 15px rgba(0, 0, 0, .5),
+  inset 5px 5px 15px rgba(0, 0, 0, .5);
+  min-height: 400px;
+  min-width: 300px;
+  padding: 40px 30px 30px;
+  position: relative;
+}
+
+body.light .container {
+  background: #fafafa;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, .15),
+  10px 10px 70px rgba(0, 0, 0, .15),
+  inset -5px -5px 15px rgba(0, 0, 0, .15),
+  inset 5px 5px 15px rgba(0, 0, 0, .05);
+}
+
+.calculator {
+  position: relative;
+  display: grid;
+}
+
+.calculator .value {
+  background: #a7af7c;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .75);
+  font-size: 2em;
+  grid-column: span 4;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 10px;
+  position: relative;
+  left: 10px;
+  text-align: right;
+  height: 100px;
+  width: calc(100% - 20px);
+}
+
+.calculator span {
+  background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+  border-radius: 10px;
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, .15),
+  inset 0 -8px 8px rgba(0, 0, 0, .25), 
+  0 0 0 2px rgba(0, 0, 0, .75),
+  10px 20px 25px rgba(0, 0, 0, .4);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  display: grid;
+  user-select: none;
+  margin: 8px;
+  position: relative;
+  place-items: center;
+  height: 80px;
+  width: 80px;
+}
+
+body.light .calculator span {
+  background: linear-gradient(180deg, #fafafa, #f4f4f4);
+  box-shadow: inset -8px 0 8px rgba(0, 0, 0, .15),
+  inset 0 -8px 8px rgba(0, 0, 0, .15), 
+  0 0 0 2px rgba(0, 0, 0, .1),
+  10px 20px 25px rgba(0, 0, 0, .25);
+}
+
+.calculator span::before {
+  background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+  border-radius: 10px;
+  border-left: 1px solid #0004;
+  border-bottom: 1px solid #0004;
+  border-top: 1px solid #0009;
+  box-shadow: -5px -5px 15px rgba(0, 0, 0, .1),
+  10px 5px 10px rgba(0, 0, 0, .15);
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  bottom: 14px;
+  right: 12px;
+}
+
+body.light .calculator span::before {
+  background: linear-gradient(90deg, #e6e6e6, #efefef);
+  border-left: 1px solid #fff4;
+  border-bottom: 1px solid #fff4;
+  border-top: 1px solid #fff9;
+  box-shadow: -10px -10px 10px rgba(255, 255, 255, .25),
+  10px 5px 10px rgba(0, 0, 0, .15);
+}
+
+.calculator span:active {
+  filter: brightness(1.5);
+}
+
+body.light .calculator span:active {
+  filter: brightness(.9);
+}
+
+.calculator span i {
+  position: relative;
+  font-style: normal;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+body.light .calculator span i {
+  color: #333;
+}
+
+body.light .calculator span.clear i,
+body.light .calculator span.equal i {
+  color: #fff;
+}
+
+body.light .calculator .clear,
+.calculator .clear {
+  background: #f00;
+  grid-column: span 2;
+  width: 180px;
+}
+
+body.light .calculator .clear::before,
+.calculator .clear::before {
+  background: linear-gradient(90deg, #d20000, #ffffff5c);
+  border-left: 1px solid #fff4;
+  border-bottom: 1px solid #fff4;
+  border-top: 1px solid #fff4;
+}
+
+.calculator .plus {
+  grid-row: span 2;
+  height: 175px;
+}
+
+body.light .calculator .equal,
+.calculator .equal {
+  background: #2196f3;
+}
+
+body.light .calculator .equal::before,
+.calculator .equal::before {
+  background: linear-gradient(90deg, #1479c9, #ffffff5c);
+  border-left: 1px solid #fff4;
+  border-bottom: 1px solid #fff4;
+  border-top: 1px solid #fff4;
+}
+
+.btn {
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .25),
+  5px 5px 30px rgba(0, 0, 0, .25),
+  inset -2px -2px 5px rgba(0, 0, 0, .25),
+  inset 2px 2px 5px rgba(0, 0, 0, .25);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+body.light .btn {
+  background: #fafafa;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .1),
+  5px 5px 30px rgba(0, 0, 0, .05),
+  inset -2px -2px 5px rgba(0, 0, 0, .1),
+  inset 2px 2px 5px rgba(0, 0, 0, .05);
+}
+
+.btn strong {
+  display: none;
+}
+
+.btn strong:nth-child(1) {
+  display: block;
+}
+
+body.light .btn strong:nth-child(1) {
+  display: none;
+}
+
+body.light .btn strong:nth-child(2) {
+  display: block;
+}
